@@ -1,0 +1,133 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "../index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Auto populate
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <strong>We have seen that </strong>
+          <br>AWs spend a lot of time populating some parts of the response<br>There can be errors in some parts of the form
+        </li>
+        <li>
+          <strong>We think this is because </strong> AWs have to refer to and copy from various DWP systems to populate parts of the response other than the response reasoning itself
+        </li>
+        <li>
+          <strong>So if we </strong> Automatically pre-populate some of the form, where we already hold the relevant data in DWP systems.
+        </li>
+        <li>
+          <strong>We will see </strong> <br>AWs will be able to work more efficiently<br>Reduced errors or inconsistencies in response documents.
+        </li>
+        <li>
+          <strong>We'll know this is true when </strong> <br>Appeals processing throughout increases with no reduction in quality. <br>
+          Internal quality metrics show accuracy improvements.<br>
+          AWs report that they are able to spend more of their time on high-value response writing activity. 
+        </li>
+      </ul>
+
+      <!--
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need to spend my time on high value activities, so that I can create the best possible appeal response for every case. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to avoid undertaking unnecessary tasks or duplicating activities. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to know what to be included in the response to ensure it meets the needs of appellants, the judiciary and DWP. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to be able to make best use of information DWP holds to support my case, and to integrate into the response effectively <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+      -->
+
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Automatically populate Appellant details, Representative details, Appeal details, Schedule of evidents and Illness and disabilities from various systems.
+        </li>
+        <li>
+          Clearly show the source of data.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Participants recognised the concept and its value.
+        </li>
+        <li>
+          Emerging finding that auto-populated data would always be checked, and facility to edit data is important.
+        </li>
+        <li>
+          Both participants highlighted challenges in achieving this autopopulation.
+        </li>
+        <li>
+          Both P’s showed recognition of SSC1-sourced data and this seemed to be perceived as trustworthy.
+        </li>
+        <li>
+          Unclear whether the messaging about source of data was recognised by participants immediately.
+        </li>
+        <li>
+          Both P’s think that, even if data still needs to be checked and verified, some autopopulation will speed things up.
+        </li>
+        <li>
+          Time savings of 15 minutes and 40 minutes per case referenced.
+        </li>
+        <li>
+          “At the moment, where UC build is, there’s no way it could do that.”
+        </li>
+        <li>
+          “I’d trust everything up to the schedule of events. I’d still want to check that out. “
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        Next steps
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          TBD
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/task-list/task-list.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/task-list/appellant-details.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/task-list/representative-details.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/task-list/appeal-details.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/task-list/schedule-of-events.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/task-list/illness-disabilities.png" alt="home page screenshot">
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "../index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Question-led approach per appellant point
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <strong>We have seen that </strong>appeal responses do not meet DWP and HMCTS quality standards
+        </li>
+        <li>
+          <strong>We think this is because </strong> <br>
+          We are asked for additional information from HMCTS <br>
+          And PO's recognise variance in quality
+        </li>
+        <li>
+          <strong>So if we </strong> <br>
+          Guide AW's through a set of structured questions <br>
+          Answers to which automatically generate a response
+        </li>
+        <li>
+          <strong>We will see </strong> increased uniformity, increased throughput
+        </li>
+        <li>
+          <strong>We'll know this is true when </strong> <br>
+          QA has a high assurance ratio/rating <br>
+          AW's have a reduced appeal handling time per response<br>
+          a reduction in direction notices from HMCTS (including regs referred to) 
+        </li>
+      </ul>
+
+      <!--
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need [the tools to support me in creating] a response which feels personalised and persuasive, so that the appellant and judiciary recognise that I’ve considered the appellant’s circumstances and all the points raised in the appeal.  <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to be able to explain the reason for DWP opposing the appellant’s grounds for appeal so that the judiciary and the appellant understand why DWP has made its decision. <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+      -->
+
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          A series of questions that will gather the necessary decision to find the right template.
+        </li>
+        <li>
+          The answers to the questions will customise the template and generate the right response.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Both participants felt this seemed prescriptive, and there’s a significant challenge in getting the right questions.
+        </li>
+        <li>
+          “I think I’d have it as point and allow us to respond from that.  It would be lovely if it was all flowcharty, unfortunately it doesn’t work like that. “
+        </li>
+        <li>
+          Both participants raised question about how the appellant points would be identified in the first place.
+        </li>
+        <li>
+          Customers are often not explicit about points.
+        </li>
+        <li>
+          When supported by external representative, they may be waiting for DWP response first before raising all points.
+        </li>
+        <li>
+          “How is it going to know to split the ramblings?“
+        </li>
+        <li>
+          One participant highlighted that legislative side was dealt with before appellant points.
+        </li>
+        <li>
+          First cite relevant law before addressing points.
+        </li>
+        <li>
+          Both participants acknowledged the editable aspect of this concept.
+        </li>
+        <li>
+          “I think you’d still need to be changing a lot of information. There’s too many shades of grey. “
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        Next steps
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Need to test the concept of questionnaire with a different logic, possibly less intelligent.
+        </li>
+        <li>
+          Possibly ask a set of questions that the appeal writer may ask themselves while editing / selecting a template.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/questions/01.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/questions/02.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/questions/03.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/questions/04.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/questions/05.png" alt="home page screenshot">
+    </div>
+  </div>
+
+{% endblock %}

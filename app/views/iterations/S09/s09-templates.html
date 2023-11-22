@@ -1,0 +1,152 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "../index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Facts of the case - a template based approach
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <strong>We have seen that </strong><br>- appeal responses do not meet DWP and HMCTS quality standards<br>
+          - the MS Word templates set out are either changed or not used at all
+        </li>
+        <li>
+          <strong>We think this is because </strong><br>
+          - the templates are overwritten <br>
+          - the appeal writers find a need to add more to the existing templates<br>
+          - the right part of the template is not edited or incorrectly edited
+        </li>
+        <li>
+          <strong>So if we </strong> <br>
+          - Guide AW's through a set of template selection <br>
+          - And ask the appeal writers to just fill in the missing information
+        </li>
+        <li>
+          <strong>We will see </strong><br>- increased uniformity, increased throughput and increased accuracy
+        </li>
+        <li>
+          <strong>We'll know this is true when </strong> <br>
+          - QA has a high assurance ratio/rating <br>
+          - AW's have a reduced appeal handling time per response<br>
+          - a reduction in direction notices from HMCTS (including regs referred to) 
+        </li>
+      </ul>
+
+      <!--
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need [the tools to support me in creating] a response which feels personalised and persuasive, so that the appellant and judiciary recognise that I’ve considered the appellant’s circumstances and all the points raised in the appeal.  <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to be able to explain the reason for DWP opposing the appellant’s grounds for appeal so that the judiciary and the appellant understand why DWP has made its decision. <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+      -->
+
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          In the previous iteration we tested a simpler set of questions, answers to which produced the facts of the case. In this iteration we are experimenting with replicating the behaviour of MS Word templates.
+        </li>
+        <li>
+          Ask the appeal writers to choose the relevant template and only ask them to fill in what is missing.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          There was a very positive response to the ‘facts of the case building’ functionality from appeal response writers.
+        </li>
+        <li>
+          Value in both time-saving and accuracy, and value over existing approaches / templates. (All quotes below from UC appeal writers)​
+        </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Some quotes from the users</h3>
+      <div class="govuk-inset-text">
+        “I’d much rather use this and fill in key information, than having to sift through things I don’t need.”
+      </div>
+      <div class="govuk-inset-text">
+         “It would make writing of an appeal a lot faster and a consistent format. Which I think is a big thing.“ ​
+      </div>
+      <div class="govuk-inset-text">
+        “The concept is similar to what we’re doing now This is doing the same thing, but in a much clearer way."​
+      </div>
+
+      <h3 class="govuk-heading-s">
+          The positive reaction was sometimes qualified with considerations.
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          It's not this “cut and dried” for complex cases with multiple elements.
+        </li>
+        <li>
+          There may be multiple changes recorded – and this system doesn’t seem to account for that.
+        </li>
+        <li>
+          Question set wasn’t considered sufficiently complete by two participants – could envisage other scenarios the responses didn’t cover.
+        </li>
+        <li>
+          If dealing with an overpayment and entitlement decision, participant wouldn’t want to go in and make two decisions.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        Next steps
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Need to address the complex cases
+        </li>
+        <li>
+          The names of the templates are too similar and hence might lead to a wrong selection of template. Need to explore other ways to select the right template.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/task-list.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/facts-of-the-case.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/intro-template.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/intro-fill-details.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/legacy-claims-template.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/legacy-claims-fill-details.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/uc-50-template.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/uc50-template-fill.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/assessment-template.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/assessment-fill-details.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/mr-template.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/mr-fill-details.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/facts-of-the-case-filled.png" alt="home page screenshot">
+    </div>
+  </div>
+
+{% endblock %}

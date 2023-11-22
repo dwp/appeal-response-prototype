@@ -1,0 +1,591 @@
+
+{% extends "dwp-layout.html" %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/full-width-layout.css" media="all" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/public/javascripts/filter.js">
+  </script>
+{% endblock %}
+
+{% block pageTitle %}
+  Manage an Appeal : Design evolution
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Appeal response design evolution
+      </h1>
+    </div>
+  </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+          <p>
+            <a class="govuk-button" href="../concept2-1/" target="_blank">Latest version of prototype (opens in a new tab)</a>
+          </p>
+        <h2 class="govuk-heading-l">
+          All iterations
+        </h2>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort">
+            Filters
+          </label>
+          <select class="govuk-select" id="filter" name="filter" onchange="filterExperiment()">
+            <option value="published" selected>All</option>
+            <option value="1" >Orientation</option>
+            <option value="2">Auto-population</option>
+            <option value="3">Seeing it as it builds</option>
+            <option value="4">Facts of the case</option>
+            <option value="5">Grounds of appeal</option>
+            <option value="6">Workflow</option>
+          </select>
+        </div>
+
+      <table class="govuk-table" id="designIterations">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Experiment / Hypotheses</th>
+            <th scope="col" class="govuk-table__header ">What's changed or new</th>
+            <th scope="col" class="govuk-table__header ">Decisions / Next steps</th>
+            <th scope="col" class="govuk-table__header ">Learning</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p>
+                <a href="/iterations/S13/s13-word-document-facts">
+                  <strong>Generate a word template with pre-filled data + Facts of the case</strong>
+                </a>
+              </p>
+              <p>Sprint 13</p>
+              <p>PrepareAnAppealResponse_v5.0</p>
+
+
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Facts of the case</span>
+              </p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Auto-population</span>
+              </p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Orientation</span>
+              </p>
+
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Workflow</span>
+              </p>
+
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Similar to the previous concept of generating a word document. Extending this concept to the facts of the case.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Same as the previous concept
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Same as the previous concept
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p>
+                <a href="/iterations/S13/s13-word-document">
+                  <strong>Generate a word template with pre-filled data</strong>
+                </a>
+              </p>
+              <p>Sprint 13</p>
+              <p>PrepareAnAppealResponse_v5.0</p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Facts of the case</span>
+              </p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Auto-population</span>
+              </p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Orientation</span>
+              </p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Workflow</span>
+              </p>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  A new approach to creating a response by gathering key data and producing a word document that the appeal writers can then use as they use templates today
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  continue the concept of producing an MS Word document as a starting point
+                </li>
+                <li>
+                  continue iterating on the task list concept rather than a linear journey
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  MS Word document as a starting point was well received
+                </li>
+                <li>
+                  The appeal writers said this method of producing the response document will save them time, though this was only an anecdotal evidence
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p>
+                <a href="/iterations/S11/s11-grounds-of-appeal">
+                  <strong>Grounds of appeal</strong>
+                </a>
+              </p>
+              <p>Sprint 11</p>
+              <p>PrepareAnAppealResponse_v4.0</p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Grounds of appeal</span>
+              </p>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  A structured questions based approach to responding to the grounds of appeal
+                </li>
+                <li>
+                  Allow appeal writers to gather all the grounds of appeal at one place and respond to each
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  For our MVP, "Grounds of Appeal" would be out of scope and hence we will not iterate on this further as of now.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  There was a desire to group similar grounds and reply to the group rather than individual ground
+                </li>
+                <li>
+                  It wasn't intuitive that the appeal writers could add multiple grounds relating to the same appeal
+                </li>
+                <li>
+                  Appeal writers might not know all the legilations for the type-ahead to work
+                </li>
+                <li>
+                  There might be more than one evidence supporting the response
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p>
+                <a href="/iterations/S09/s09-templates">
+                  <strong>Facts of the case - a template based approach</strong>
+                </a>
+              </p>
+              <p>Sprint 09</p>
+              <p>PrepareAnAppealResponse_v3.0</p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Facts of the case</span>
+              </p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Seeing it as it builds</span>
+              </p>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  In the previous iteration we tested a simpler set of questions, answers to which produced the facts of the case. In this iteration we are exerimenting with replicating the behaviour of MS Word templates.
+                </li>
+                <li>
+                  Ask the appeal writers to choose the relevant template and only ask them to fill in what is missing.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Need to address the complex cases
+                </li>
+                <li>
+                  The names of the templates are too similar and hence might lead to a wrong selection of template. Need to explore other ways to select the right template.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  There was a very positive response to the ‘facts of the case building’ functionality from appeal response writers.
+                </li>
+                <li>
+                  Value in both time-saving and accuracy, and value over existing approaches / templates. (All quotes below from UC appeal writers)​
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p>
+                <a href="/iterations/S09/s09-bundle">
+                  <strong>Auto populate data from the evidence bundle</strong>
+                </a>
+              </p>
+              <p>Sprint 09</p>
+              <p>PrepareAnAppealResponse_v3.0</p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Auto-population</span>
+              </p>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    In the previous iteration we tested auto populating date from the CCD system, in this version we want to experiment extracting that data from the evidence bundle.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We need to explore getting this data from a different source
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Approaches to researching, building an evidence bundle and writing the response differ between appeal writers. We can’t assume that an evidence bundle will always be available, in a finalised form, at the point an appeal writer starts producing their response. ​
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p>
+                <a href="/iterations/S09/s09-home-find">
+                  <strong>A new home</strong>
+                </a>
+              </p>
+              <p>Sprint 09</p>
+              <p>PrepareAnAppealResponse_v3.0</p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Orientation</span>
+              </p>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    In the previous iteration the home page consisted of a list of previously created, this led to a few challenges with orientation of what this service was meant for. Some users thought, this will help them with their workflow. Hence in this iteration we simplified the homepage and created a new search page.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Since the evidence bundle might not have been created at the point of creating a response, we will have to extract that information from a different system.
+                </li>
+                <li>
+                  We will continue evolving this simpler version of the home page and search page but might revert back to creating the response by extrating data from HMCTS' CCD system.
+                </li>
+                <li>
+                  We should also explore if we can incorporate create and find in a single screen rather than separate screens.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  In the previous sprint we mentioned ‘orientation’ issues relating to the ‘Appeal Response’ screens. These were less evident in this round of testing. Possible reasons (i) prior knowledge of prototype (ii) new  “upload evidence” concept.​
+                </li>
+                <li>
+                  There were ‘orientation’ findings relating to first screen users saw – including perception that it was the start of building the evidence bundle, or the first step in creating an appeal response, or compiling a response but with some form of response already in place.​
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p>
+                <a href="/iterations/S08/s08-questions">
+                  <strong>A simpler question set</strong>
+                </a>
+              </p>
+              <p>Sprint 08</p>
+              <p>PrepareAnAppealResponse_v2.0</p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Facts of the case</span>
+              </p>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    In the previous iteration we tested a smart questionnaire that took the conditions of the appellant as an input and intelligently generated a response. However, this can be challenging to implement. This set of questionnaire is designed to ask the questions an Appeal Writer would ask themselves while choosing and editing a template.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We are fairly confident that a questions based approach to building the facts of the case is a viable and can lead to higher accuracy. In the next iteration we want to test a different mechanism for selecting the right template, one that will also increase speed along with accuracy.
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Very well received, fewer doubts expressed vs. appellant points.​
+                </li>
+                <li>
+                  Recognised potential for time-saving, accuracy and quality.​
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <p>
+                <a href="/iterations/S07/s07-home-page">
+                  <strong>Single page view with accordions</strong>
+                </a>
+              </p>
+              <p>Sprint 08</p>
+              <p>PrepareAnAppealResponse_v2.0</p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Workflow</span>
+              </p>
+            </td>
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  A blend of task list pattern and a single page view
+                </li>
+                <li>
+                  Show each section only on demand but still on the same page
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Yet to be tested
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Yet to be tested
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <p>
+                <a href="/iterations/S07/s07-home-page">
+                  <strong>Home page</strong>
+                </a>
+              </p>
+              <p>Sprint 07</p>
+              <p>PrepareAnAppealResponse_v1.0</p>
+              <p>
+                <span class="govuk-tag govuk-tag--grey">Orientation</span>
+              </p>
+            </td>
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  A home page to start the journey
+                </li>
+                <li>
+                  A list of previously created appeal responses
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Users found it valuable to see the things they have worked on and they can re-visit there in progress work
+                </li>
+                <li>
+                  We will continue to include this page in the future iterations
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  Tested with 2 users
+                </li>
+                <li>
+                    List-based presentation of work items was familiar to both Ps.
+                </li>
+                <li>
+                    Positive feedback as they are already used to something similar for their current workflow.
+                </li>
+              </ul>
+            </td>
+          </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <p>
+                  <a href="/iterations/S07/s07-auto-populate">
+                    <strong>Auto-populate</strong>
+                  </a>
+                </p>
+                <p>Sprint 07</p>
+                <p>PrepareAnAppealResponse_v1.0</p>
+                <p>
+                  <span class="govuk-tag govuk-tag--grey">Auto-population</span>
+                </p>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                      Auto-population of existing data to result in avoiding duplication, reducing human error, being more efficient.
+                  </li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    Explore the sources of the data to be auto populated
+                  </li>
+                  <li>
+                    We will continue to include this page in the future iterations
+                  </li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    Participants recognised the concept and its value.
+                  </li>
+                  <li>
+                      Emerging finding that auto-populated data would always be checked, and facility to edit data is important.
+                  </li>
+                  <li>
+                      Both participants highlighted challenges in achieving this autopopulation.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <p>
+                  <a href="/iterations/S07/s07-single-page">
+                    <strong>Task list vs. single-page</strong>
+                  </a>
+                </p>
+                <p>Sprint 07</p>
+                <p>PrepareAnAppealResponse_v1.0</p>
+                <p>
+                  <span class="govuk-tag govuk-tag--grey">Workflow</span>
+                </p>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                      A single page view of the data of appeal respose
+                  </li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    TBD
+                  </li>
+                  <li>
+                    We will continue to include this page in the future iterations
+                  </li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    No clear indication yet whether task-list approach is preferable to a single-page approach.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <p>
+                  <a href="/iterations/S07/s07-questions">
+                    <strong>Question-led approach per appellant point</strong>
+                  </a>
+                </p>
+                <p>Sprint 07</p>
+                <p>PrepareAnAppealResponse_v1.0</p>
+                <p>
+                  <span class="govuk-tag govuk-tag--grey">Grounds of appeal</span>
+                </p>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                      A structured question approach to responding to appellant points, there’s potential to make the process quicker for appeal response writers, as well as leading to more accurate responses.
+                  </li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    Need to test the concept of questionnaire with a different logic, possibly less intelligent.
+                  </li>
+                  <li>
+                    Possibly ask a set of questions that the appeal writer may ask themselves while editing / selecting a template.
+                  </li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    Both participants felt this seemed prescriptive, and there’s a significant challenge in getting the right questions.
+                  </li>
+                  <li>
+                    Both participants raised question about how the appellant points would be identified in the first place.
+                  </li>
+                  <li>
+                    One participant highlighted that legislative side was dealt with before appellant points.
+                  </li>
+                  <li>
+                    Both participants acknowledged the editable aspect of this concept.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+        </tbody>
+      </table>
+  </div>
+
+
+<div>
+
+{% endblock %}

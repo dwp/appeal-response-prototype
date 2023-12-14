@@ -66,6 +66,14 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskFOC">Not started</strong>
               </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="./activities-considered" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Add activities and points
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="points">Not started</strong>
+              </li>
             </ul>
           </li>
 
@@ -107,10 +115,21 @@
       if(sessionStorage.getItem("taskProgressAppellantDetails")=="2") {
           document.getElementById("taskAppellantDetails").innerHTML = "Completed";
           document.getElementById("taskAppellantDetails").className = "govuk-tag app-task-list__tag";
+        
       }
+      
+//points
+//Flags - 
+      if(sessionStorage.getItem("taskProgressPoints")=="2") {
+          document.getElementById("points").innerHTML = "Completed"; //'complete - changed the label name'
+          document.getElementById("points").className = "govuk-tag app-task-list__tag"; //pulling in GDS style label- check design system
+        
+      }
+
+
       if(sessionStorage.getItem("taskProgressRepDetails")=="2") {
           document.getElementById("taskRepDetails").innerHTML = "Completed";
-          document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag";
+          document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag"; 
       }
       if(sessionStorage.getItem("taskProgressFOC")=="2") {
           document.getElementById("taskFOC").innerHTML = "Completed";
@@ -124,7 +143,7 @@
      
       // when adding stuff to task list, add here... :) 
 
-      if(sessionStorage.getItem("taskProgressAppellantDetails")=="2" && sessionStorage.getItem("taskProgressRepDetails")=="2" && sessionStorage.getItem("taskProgressFOC")=="2" ) 
+      if(sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressFOC")=="2" ) 
       { 
         document.getElementById("cya-link").style.display="block"; 
         document.getElementById("cya-nolink").style.display="none"; 
@@ -136,6 +155,7 @@
         document.getElementById("cya-no-link-status").style.display= "block";
 
       }
+      
 
     });
   </script>

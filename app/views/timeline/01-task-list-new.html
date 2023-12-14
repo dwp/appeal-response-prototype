@@ -68,7 +68,15 @@
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="./activities-considered" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                  
+                  <!--because I'm not saving data we can do it in the HTML,LCW value on decision type page -->
+                  <a 
+                  {% if data.decisionType == 'LCW' %}
+                    href="./activities-considered"
+                  {% else %}
+                    href="./Treated-as"
+                  {% endif %}
+                  aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
                     Add activities and points
                   </a>
                 </span>
@@ -143,17 +151,18 @@
      
       // when adding stuff to task list, add here... :) 
 
-      if(sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressFOC")=="2" ) 
+      if(sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressAppellantDetails")=="2" && sessionStorage.getItem("taskProgressRepDetails")=="2" && sessionStorage.getItem("taskProgressFOC")=="2" ) 
       { 
         document.getElementById("cya-link").style.display="block"; 
         document.getElementById("cya-nolink").style.display="none"; 
         document.getElementById("cya-no-link-status").style.display= "none";
+        console.log("everything is complete");
       }
       else {
         document.getElementById("cya-link").style.display="none"; 
         document.getElementById("cya-nolink").style.display="block"; 
         document.getElementById("cya-no-link-status").style.display= "block";
-
+        console.log("NOT everything is complete");
       }
       
 

@@ -32,7 +32,7 @@
     <ul class="govuk-list ">
       {% for item in data.timeline.activities %}
       <li>
-        {{item}}
+        {{item}} {{data.activitypoints[item]}}
       </li>
 
       {%endfor%}
@@ -49,9 +49,53 @@
               Check your answers
             </h1>
           </legend>
-    
+
+        <p> {{
+          data.activitypoints["Mobilising"]
+        }}</p>  
+          
       {{ govukSummaryList({
         rows: [
+        
+        
+        {
+          key: {
+            text: "Treated as provision"
+          },
+          value: {
+            text: data.timeline.provisions
+          },
+          actions: {
+            items: [
+              {
+                href: "treated-as",
+                text: "Change",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        },
+
+        {
+          key: {
+            text: "Provision type"
+          },
+          value: {
+            text: data.timeline.provisiontype
+          },
+          actions: {
+            items: [
+              {
+                href: "treated-as",
+                text: "Change",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        },
+        
+        
+      
           {
             key: {
               text: "Activities considered"

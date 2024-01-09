@@ -2162,6 +2162,10 @@ router.post('/timeline/Treated-as', (req, res) => {
   res.redirect('/timeline/activities-considered')
 })
 
+router.post('/timeline/points-for-each-activity', (req, res) => {
+  res.redirect('/timeline/eating-drinking')
+})
+
 
 module.exports = router;
 

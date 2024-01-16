@@ -59,14 +59,14 @@
             <div class="" id="conditionsContainer">
               <div class="govuk-input__wrapper autocomplete ">
                 {% if data.edit != 1 %}
-                  <input class="govuk-input govuk-input--width-20 conditionInput" id="condition" name="[timeline][activitychange]" type="text">
+                  <input class="govuk-input govuk-input--width-20 conditionInput" id="condition" name="newHealthCondition" type="text">
                 {% endif %}
               </div>
             </div>
         </div>
         
         {{ govukRadios({
-          name: "[timeline][abilitytowork]",
+          name: "abilityToWork",
           fieldset: {
             legend: {
               text: "Did this change restrict the appellant's ability to work?",
@@ -74,7 +74,7 @@
               classes: "govuk-fieldset__legend--s"
             }
           },
-          value: data.timeline.abilitytowork,
+          value: data.events[data.dateOfChangeHealthDisabilityIndex].details.abilityToWork,
           items: [
             {
               value: "Restricts ability to work",
@@ -88,7 +88,7 @@
         }) }}  
 
         {{ govukRadios({
-          name: "[timeline][medicalevidence]",
+          name: "medicalEvidence",
           fieldset: {
             legend: {
               text: "Did they provide valid medical evidence?",
@@ -96,7 +96,7 @@
               classes: "govuk-fieldset__legend--s"
             }
           },
-          value: data.timeline.medicalevidence,
+          value: data.events[data.dateOfChangeHealthDisabilityIndex].details.medicalEvidence,
           items: [
             {
               value: "Medical evidence provided",

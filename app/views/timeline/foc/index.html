@@ -40,7 +40,7 @@
       Build facts of the case
     </h1>
     
-
+    {{data | dump}}
 
     {% if (data.events | length) > 0 %}
         <div class="govuk-grid-column-two-thirds">
@@ -200,8 +200,8 @@
 
           <li class="govuk-!-margin-bottom-2">
             <a class="govuk-link govuk-link--no-visited-state" href="date-of-change">Change to health or disability</a>
-            {% if data.noOfEvents.coc > 0%}
-              ({{data.noOfEvents.coc}} added)
+            {% if data.noOfEvents.changeHealthDisability > 0%}
+              ({{data.noOfEvents.changeHealthDisability}} added)
             {% endif %}
           </li>
           <li class="govuk-!-margin-bottom-2">

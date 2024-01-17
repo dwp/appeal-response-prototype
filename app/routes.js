@@ -2269,6 +2269,29 @@ router.post('/timeline/remove-health-condition', (req, res) => {
   res.redirect('/timeline/health-conditions')
 })
 
+router.post('/timeline/eating-drinkingUC50', (req, res) => {    
+  const { data } = req.session;
+
+  console.log("********* ", data);
+
+  let uc50 = data.events.find(o => o.id === data.uc50ID);
+  if (data.timeline)
+  {
+    uc50.details.eatingorDrinkingUC50 = data.timeline.eatingorDrinkingUC50;    
+    data.error = 0;
+  }
+  else
+  {
+    data.error = 1;
+    res.redirect('/timeline/foc/uc50');
+  }
+  sortChrono(data.events);
+  if(data.cya =="true")
+    res.redirect('/timeline/11-check-answers');
+  else
+  res.redirect('/timeline/foc/index');
+})
+
 
 
 module.exports = router;

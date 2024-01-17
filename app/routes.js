@@ -1212,21 +1212,21 @@ router.get('/edit',(req,res)=>{
       }
     }
   }
-  else if (data.events[idToEdit].type == "changeHeathDisability") {
+  else if (data.events[idToEdit].type == "changeHealthDisability") {    
     for(i=0;i<data.events.length;i++){
       if(data.events[i].groupID == data.events[idToEdit].groupID){
         if(data.events[i].type == "changeHealthDisability")
         {
-          data.changeHealthDisabilityIndex = i;
+          data.editChangeHealthDisabilityIndex = i;
         }
       }
     }
   }
 
-
-
   if(data.events[idToEdit].type == "uc50")
     res.redirect('/timeline/foc/uc50Exists');
+  if(data.events[idToEdit].type == "changeHealthDisability")
+    res.redirect('/timeline/foc/date-of-change');    
   else
     res.redirect('/timeline/foc/' + data.events[idToEdit].type);
 })
@@ -1354,6 +1354,7 @@ router.get('/timeline/foc/uc50',(req,res)=>{
 
 router.post('/timeline/foc/addUC50Details',(req,res) => {
   const { data } = req.session;
+
   let uc50 = data.events.find(o => o.id === data.uc50ID);
   if (data.physical)
   {
@@ -1370,7 +1371,7 @@ router.post('/timeline/foc/addUC50Details',(req,res) => {
   if(data.cya =="true")
     res.redirect('/timeline/11-check-answers');
   else
-    res.redirect('/timeline/foc/index'); //change to eating or drinking
+    res.redirect('/timeline/foc/eating-drinkingUC50'); //change to eating or drinking
 })
 
 router.post('/timeline/foc/addDecision',(req,res) => {
@@ -2188,15 +2189,16 @@ router.post('/timeline/foc/date-of-change', (req, res) => {
 
   if(data.edit == 1)
   {
-    changeHealthDisability = data.events.find(o => o.id === data.events[data.dateOfChangeHealthDisabilityIndex].id);        
+    changeHealthDisability = data.events.find(o => o.id === data.events[data.editChangeHealthDisabilityIndex].id);        
   }
   
   if(data.healthDisabilityChangeDay && data.healthDisabilityChangeMonth && data.healthDisabilityChangeYear) {
+    changeHealthDisability.details = {};
     changeHealthDisability.day = data.healthDisabilityChangeDay;
     changeHealthDisability.month = data.healthDisabilityChangeMonth;
     changeHealthDisability.year = data.healthDisabilityChangeYear;
     changeHealthDisability.date = changeHealthDisability.day + " " + convertMonth(changeHealthDisability.month) + " " + changeHealthDisability.year;
-    changeHealthDisability.title = "Date of health or disability change" ;
+    changeHealthDisability.title = "Change to health or disability" ;
 
     if(data.edit != 1) {
       changeHealthDisability.id = uuidv4();
@@ -2205,12 +2207,13 @@ router.post('/timeline/foc/date-of-change', (req, res) => {
       data.events.push(changeHealthDisability);
       data.noOfEvents.changeHealthDisability++;
     } else {
+      changeHealthDisability.details = {};
       changeHealthDisability.details.abilityToWork = null;
       changeHealthDisability.details.medicalEvidence = null;
     }
     data.lastAdded = changeHealthDisability.id;
     data.error=0;
-
+    data.changeHealthDisability = changeHealthDisability;
   } else {
     data.error = 1;
     return res.redirect('/timeline/foc/date-of-change');
@@ -2221,15 +2224,21 @@ router.post('/timeline/foc/date-of-change', (req, res) => {
     return res.redirect('/timeline/health-conditions')
 })
 
+router.get('/timeline/health-conditions', (req, res) => {
+  const { data } = req.session;    
+  
+  res.render('./timeline/health-conditions')
+})
+
 router.post('/timeline/health-conditions', (req, res) => {
   res.redirect('/timeline/Add-health-condition')
 })
 
 router.post('/timeline/Add-health-condition', (req, res) => {
-  const { data } = req.session;
-    console.log(data.events)
-    const changeHealthDisability = data.events.find(o => o.id === data.events[data.editChangeHealthDisabilityIndex].id);        
+  const { data } = req.session;    
+    const changeHealthDisability = data.events.find(o => o.id === data.changeHealthDisability.id);        
     
+    changeHealthDisability.details.newHealthConditions = data.newHealthCondition;
     changeHealthDisability.details.abilityToWork = data.abilityToWork;
     changeHealthDisability.details.medicalEvidence = data.medicalEvidence;
     
@@ -2240,45 +2249,6 @@ router.post('/timeline/Add-health-condition', (req, res) => {
   else
     res.redirect('/timeline/foc/index');
 })
-
-// Add change to health condition & disability to the timeline
-router.post('/timeline/foc/add-change-health-condition-disability',(req,res) => {
-  // const { data } = req.session;
-  
-  // let changeHealthDisability = {};
-
-  // if(data.edit == 1)
-  // {
-  //   changeHealthDisability = data.events.find(o => o.id === data.events[data.changeHealthDisabilityIndex].id);        
-  // }
-  
-  // if(data.dateMrDay && data.dateMrMonth && data.dateMrYear) {
-  //     changeHealthDisability.day = data.dateMrDay;
-  //     changeHealthDisability.month = data.dateMrMonth;
-  //     changeHealthDisability.year = data.dateMrYear;
-  //     changeHealthDisability.date = changeHealthDisability.day + " " + convertMonth(changeHealthDisability.month) + " " + changeHealthDisability.year;
-  //     changeHealthDisability.title = "Change to health or disability";
-  //     if(data.edit != 1)
-  //     {
-  //       changeHealthDisability.id = uuidv4();
-  //       changeHealthDisability.groupID = mrDecision.id;
-  //       changeHealthDisability.type = "changeHealthDisability";
-  //       data.events.push(changeHealthDisability);
-  //       data.noOfEvents.mr++;
-  //     }
-  //     data.lastAdded = mrDecision.id;
-  //     data.error=0;
-  //     sortChrono(data.events);
-  // } else {
-  //   data.error = 1;
-  //   res.redirect('/timeline/foc/date-of-change');
-  // }
-  // if(data.cya =="true")
-  //   res.redirect('/timeline/11-check-answers');
-  // else
-    res.redirect('/timeline/foc/index');
-})
-
 
 
 router.post('/timeline/previously-declared-health-conditions', (req, res) => {

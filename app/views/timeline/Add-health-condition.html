@@ -29,6 +29,7 @@
 
 
 <form novalidation method="post">
+  <input type="hidden"  name="changeHealthDisabilityID" type="text" style="display:none" value={{data.changeHealthDisability.id}}>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class='govuk-label--l'>Declared health condition</h1>
@@ -58,9 +59,9 @@
             </h1>
             <div class="" id="conditionsContainer">
               <div class="govuk-input__wrapper autocomplete ">
-                {% if data.edit != 1 %}
+                <!-- {% if data.edit != 1 %} -->
                   <input class="govuk-input govuk-input--width-20 conditionInput" id="condition" name="newHealthCondition" type="text">
-                {% endif %}
+                <!-- {% endif %} -->
               </div>
             </div>
         </div>
@@ -74,7 +75,7 @@
               classes: "govuk-fieldset__legend--s"
             }
           },
-          value: data.events[data.dateOfChangeHealthDisabilityIndex].details.abilityToWork,
+          value: data.events[data.editChangeHealthDisabilityIndex].details.abilityToWork,
           items: [
             {
               value: "Restricts ability to work",
@@ -96,7 +97,7 @@
               classes: "govuk-fieldset__legend--s"
             }
           },
-          value: data.events[data.dateOfChangeHealthDisabilityIndex].details.medicalEvidence,
+          value: data.events[data.editChangeHealthDisabilityIndex].details.medicalEvidence,
           items: [
             {
               value: "Medical evidence provided",

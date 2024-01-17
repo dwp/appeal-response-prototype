@@ -147,21 +147,18 @@
         rows: existingConditions
       }) }}
     {%endif%} 
-    
-<h1>asdfasdf{{data | dump}}</h1>
-
-    {% if data.events[data.dateOfChangeHealthDisabilityIndex].newHealthCondition %}
-
+        
+    {% if data.newHealthCondition %}
     <h1 class="govuk-heading-m"> New health conditions</h1>
 
     {{ govukSummaryList({    
       rows: [
       {
         key: {
-          text: data.timeline.activitychange
+          text: data.newHealthCondition
         },
         value: {
-          html: data.timeline.abilitytowork + "<br> " + data.timeline.medicalevidence,
+          html: data.abilityToWork + "<br> " + data.medicalEvidence,
           width: 1px
         },
         actions: {

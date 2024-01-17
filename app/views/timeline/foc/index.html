@@ -39,9 +39,7 @@
     <h1 class="govuk-heading-xl govuk-!-margin-left-3">
       Build facts of the case
     </h1>
-    
-    {{data | dump}}
-
+        
     {% if (data.events | length) > 0 %}
         <div class="govuk-grid-column-two-thirds">
           <p class="">
@@ -73,11 +71,21 @@
                   </td>
                   <td class="govuk-table__cell" style="width:60% !important;">
                     <span class="govuk-body govuk-!-font-weight-bold">{{ event.title }}</span>
-                    
+                                        
                     {% if event.details %}
                       <div class="listOfDetails">
                         {% for key,value in event.details %}
                           <div class="details-{{event.id}} detail" style="display:none;">
+                            {% if event.type == "changeHealthDisability" and key == "newHealthConditions" %}
+                            <p class="govuk-body govuk-!-font-weight-bold">
+                              Existing conditions
+                              <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0">                                
+                                  <li class="govuk-body" >Arthritis</li>
+                                  <li class="govuk-body" >Carpal tunnel syndrome</li>
+                                  <li class="govuk-body" >Broken wrist</li>
+                              </ul>                          
+                            </p>
+                            {% endif %}
                             <p class="govuk-body govuk-!-font-weight-bold" >
                               {% if key == 'mentalPoints' %}
                                 Descriptor points awarded by the decision maker for mental, cognitive and intellectual function <br>
@@ -109,6 +117,8 @@
                                 Mental, cognitive and intellectual capabilities the appellant have difficulty with<br>
                               {% elif key == 'agree' %}
                                 Did the MR decision maker agree with the original decision?<br>
+                              {% elif key == 'newHealthConditions' %}
+                                New health condition<br>
                               {% endif %}
 
                               {% if event.type == "other"%}
@@ -123,7 +133,7 @@
                                 {% else %}
                                   <span class="govuk-body">{{value}}</span>
                                 {% endif %}
-                              {% endif %}
+                              {% endif %}                              
                             </p>
                           </div>
                         {% endfor %}

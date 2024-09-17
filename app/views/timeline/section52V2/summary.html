@@ -69,18 +69,8 @@
                 text: "Source"
               },
               value: {
-                text: data.timeline.section52.lowerlimb[randomID].document
+                text: data.timeline.section52.lowerlimb[randomID].document + ', page ' + data.timeline.section52.lowerlimb[randomID].page
               }
-            }), lowerLimbRows) %}
-
-
-            {% set lowerLimbRows = (lowerLimbRows.push({
-              key: {
-                text: "Page"
-              },
-              value: {
-                text: data.timeline.section52.lowerlimb[randomID].page
-              }             
             }), lowerLimbRows) %}
 
           {% endif %}
@@ -136,19 +126,10 @@
         text: "Source"
       },
       value: {
-        text: data.timeline.section52.upperlimb[randomID].document
+        text: data.timeline.section52.upperlimb[randomID].document + ', page ' + data.timeline.section52.upperlimb[randomID].page
       }
     }), upperlimbRows) %}
 
-
-    {% set upperlimbRows = (upperlimbRows.push({
-      key: {
-        text: "Page"
-      },
-      value: {
-        text: data.timeline.section52.upperlimb[randomID].page
-      }             
-    }), upperlimbRows) %}
 
   {% endif %}
 {% endfor %}

@@ -84,11 +84,16 @@
             <ul class="app-task-list__items">              
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="./section52V2b/record-evidence" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
-                    Record evidence for activities
-                  </a>
-                </span>
-                
+                  {% if data.addedAllEvidence[0] === 'yes' %}
+                    <a href="./section52V2b/evidences" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                      Record evidence for activities
+                    </a>
+                  {% else %}
+                    <a href="./section52V2b/record-evidence" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                      Record evidence for activities
+                    </a>
+                  {% endif %}
+                </span>                
                 
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="points">
                   {% if data.recordEvidence === 'no' or data.addedAllEvidence[0] === 'yes' %}

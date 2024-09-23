@@ -51,10 +51,10 @@
                                 text:  row.evidence
                             },
                             {
-                                html: '<a href="#">Remove</a>'
+                                html: '<a href="/timeline/section52V2b/remove-evidence?id=' + row.id + '&group=' + name + '">Remove</a>'
                             },
                             {
-                                html: '<a href="#">Change</a>'
+                                html: '<a href="/timeline/section52V2b/add-evidence?id=' + row.id + '&group=' + name + '">Change</a>'
                             }    
                         ]
                     ), evidenceRow) %}
@@ -71,7 +71,7 @@
                          
         {{ govukTable({
             caption: activity,
-            captionClasses: "govuk-table__caption--m govuk-!-margin-top-8",
+            captionClasses: "govuk-table__caption--m govuk-!-margin-top-5",
             firstCellIsHeader: true,
             head: [
             {
@@ -98,6 +98,16 @@
         </p>
     {% endfor %}
       
+    {{ govukCheckboxes({
+        name: "addedAllEvidence",
+        classes: "govuk-!-static-margin-top-9",
+        items: [    
+          {
+            value: "yes",
+            text: "I have added all the evidence I need"
+          }
+        ]
+      }) }}
 
     {{ govukButton({
       text: "Continue"

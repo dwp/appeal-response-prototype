@@ -91,7 +91,7 @@
                 
                 
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="points">
-                  {% if data.recordEvidence === 'no' %}
+                  {% if data.recordEvidence === 'no' or data.addedAllEvidence[0] === 'yes' %}
                     Completed
                   {% else %}
                     Not started

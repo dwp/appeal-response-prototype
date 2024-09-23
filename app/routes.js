@@ -2928,16 +2928,31 @@ console.log(evidences);
   res.render('./timeline/section52V2b/evidences', { activities, evidences });
 })
 
+router.post('/timeline/section52V2b/evidences', (req, res) => {  
+  res.redirect('/timeline/01-task-list-new-b');
+})
+
+
 router.get('/timeline/section52V2b/add-evidence', (req, res) => {
-  const { group, id } = req.query;
-  res.render('./timeline/section52V2b/add-evidence', {group, id});
+  let { group, id } = req.query;
+  if(!id) {
+    id = Math.floor(Math.random() * 1000);    
+    res.render('./timeline/section52V2b/add-evidence', {group, id});
+  } else {
+    const { evidences } = req.session.data;    
+    const evidenceForCurrentGroup = evidences[group];
+    
+    const currentEvidence = evidenceForCurrentGroup.filter(item => item.id === id) || {};
+    
+    res.render('./timeline/section52V2b/add-evidence', {group, id, currentEvidence});
+  }  
 })
 
 router.post('/timeline/section52V2b/add-evidence', (req, res) => {  
   const { id, group, document, page, evidence } = req.body;
   
   let { evidences } = req.session.data;
-  
+
   if(!evidences) {
     evidences = {};      
   }
@@ -2946,9 +2961,35 @@ router.post('/timeline/section52V2b/add-evidence', (req, res) => {
     evidences[group] = [] 
   };    
   
-  evidences[group].push({id: id ? Number(id) + 1 :0,  document, page, evidence})
-    
+  const existingEvidenceIndex = evidences[group].findIndex(item => item.id === id);
+  
+  if(existingEvidenceIndex > -1) {
+    evidences[group][existingEvidenceIndex] = { id, document, page, evidence}
+  } else {
+    evidences[group].push({id, document, page, evidence})
+  }
+      
   req.session.data.evidences = evidences;
   
+
+  res.redirect('/timeline/section52V2b/evidences')
+})
+
+router.get('/timeline/section52V2b/remove-evidence', (req, res) => {  
+  let { group, id } = req.query;
+
+  res.render('./timeline/section52V2b/remove-evidence', {group, id})
+})
+
+router.post('/timeline/section52V2b/remove-evidence', (req, res) => {    
+  let { group, id, removeEvidence } = req.body;
+  let { evidences } = req.session.data;
+
+  if(removeEvidence === 'yes') {
+    const existingEvidenceIndex = evidences[group].findIndex(item => item.id === id);  
+    evidences[group].splice(existingEvidenceIndex, 1);  
+    req.session.data.evidences = evidences;  
+  }
+
   res.redirect('/timeline/section52V2b/evidences')
 })

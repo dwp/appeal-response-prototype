@@ -472,6 +472,14 @@
                     </a>
                     </dd>
                 </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Activity groups</dt>
+                    <dd class="govuk-summary-list__value">Upper limb <br />Lower limb</dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/timeline/section52V2b/record-evidence">Change
+                    </a>
+                    </dd>
+                </div>                
             </dl>
 
 
@@ -494,9 +502,6 @@
                                         text:  row.evidence
                                     },
                                     {
-                                        html: '<a href="/timeline/section52V2b/remove-evidence?id=' + row.id + '&group=' + name + '">Remove</a>'
-                                    },
-                                    {
                                         html: '<a href="/timeline/section52V2b/add-evidence?id=' + row.id + '&group=' + name + '">Change</a>'
                                     }    
                                 ]
@@ -509,7 +514,7 @@
                 {% if (evidenceRow | length > 0) %}
                     {% set finalEvidenceRow = evidenceRow %}
                 {% else %}            
-                    {% set finalEvidenceRow = [[{text: 'No evidence entered so far.', classes: 'govuk-!-font-weight-regular'}, {text: ''}, {text: ''}, {text: ''}]] %}
+                    {% set finalEvidenceRow = [[{text: 'No evidence entered so far', classes: 'govuk-!-font-weight-regular'}, {text: ''}, {text: ''}, {text: ''}]] %}
                 {% endif %}
                                  
                 {{ govukTable({

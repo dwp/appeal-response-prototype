@@ -2993,3 +2993,11 @@ router.post('/timeline/section52V2b/remove-evidence', (req, res) => {
 
   res.redirect('/timeline/section52V2b/evidences')
 })
+
+
+router.get('/timeline/section52V2b/check-your-answers', (req, res) => {  
+  const { activities, evidences } = req.session.data;
+
+  console.log("========", activities);
+  res.render('./timeline/section52V2b/check-your-answers', { allActivities: activities, evidences });
+})

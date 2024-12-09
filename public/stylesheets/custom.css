@@ -194,13 +194,11 @@
   .wideCTA {
     display: none;
   }
-
   .addPanel {
     margin-left: 0px !important;
     margin-top: 36px !important;
     margin-bottom: 36px !important;
   }
-
   .narrowCTA {
     display: block;
   }
@@ -209,13 +207,11 @@
   .wideCTA {
     display: block;
   }
-
   .addPanel {
     margin-left: 36px !important;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
   }
-
   .narrowCTA {
     display: none;
   }
